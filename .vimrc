@@ -13,6 +13,7 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -27,3 +28,6 @@ set autoindent
 set number numberwidth=1
 inoremap kj <Esc>
 
+" NERDTree configs
+" autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

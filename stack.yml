@@ -1,0 +1,35 @@
+# ~/.tmuxinator/platform-ui.yml
+
+name: platform-ui
+root: ~/projects/socrata
+
+windows:
+  - nginx:
+    - sudo nginx -c /home/tony/projects/socrata/platform-ui/dev-server/nginx.conf
+  - frontend:
+    - cd platform-ui/frontend
+    #    - git checkout <%= @settings["frontend"].nil? ? "master" : @settings["frontend"] %>
+    #    - git branch
+      #    - git pull
+      #    - npm run prebuild:prod
+      #    - npm run build:prod
+      #    - npm run postbuild:prod
+      #      FRONTEND_WEBPACK_BUNDLES=authentication,open-data,site_wide
+
+    - FRONTEND_WEBPACK_BUNDLES=authentication,open-data,site_wide WEBPACK_USE_MANIFEST=true WEBPACK_USE_DEV_SERVER=false bin/start_frontend
+#  - frontend-webpack:
+#    - cd platform-ui/frontend
+#    - npm run build:prod
+  - feature-flag-signaller:
+    - cd feature-flag-signaller
+    - bin/start_signaller
+#  - notifications-and-alerts:
+#    - cd notifications-and-alerts
+#    - git reset --hard
+#    - git pull
+#    - mix phoenix.migrate  
+#    - mix phoenix.server
+  - core:
+    - cd core
+    - export SBT_OPTS='-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M -Djava.net.preferIPv4Stack=true'
+    - sbt 'set offline := true' 'core-http/run serve'

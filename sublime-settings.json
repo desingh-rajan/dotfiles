@@ -1,0 +1,20 @@
+{
+	"color_scheme": "Packages/Color Scheme - Default/Mariana.tmTheme",
+	"detect_indentation": false,
+	"ensure_newline_at_eof_on_save": true,
+	"env":
+	{
+		"PATH": "/usr/local/bin/elixir"
+	},
+	"ignored_packages":
+	[
+	],
+	"save_on_focus_lost": true,
+	"show_encoding": true,
+	"tab_size": 2,
+	"theme": "Default.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"vintage_start_in_command_mode": true,
+	"wrap_width": 110
+}

@@ -1,0 +1,18 @@
+{
+	"bootstrapped": true,
+	"env":
+	{
+		"PATH": "/usr/local/"
+	},
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Elixir",
+		"ElixirSublime",
+		"ElixirSyntax",
+		"Package Control",
+		"SublimeLinter"
+	]
+}
